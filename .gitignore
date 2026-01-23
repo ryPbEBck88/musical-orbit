@@ -19,3 +19,7 @@ node_modules/
 # Build
 dist/
 build/
+
+# Configuration (содержит конфиденциальные данные)
+.env
+.env.local

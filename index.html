@@ -91,12 +91,66 @@
                 </div>
             </div>
         </section>
+
     </main>
+
+    <!-- Модальное окно с формой заявки -->
+    <div id="participate-modal" class="modal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <button class="modal-close" aria-label="Закрыть">&times;</button>
+            <h2>Заявка</h2>
+            <form id="application-form" class="application-form">
+                <div class="form-group">
+                    <label for="name">ФИО исполнителя / название коллектива *</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="participants">Количество участников *</label>
+                    <input type="number" id="participants" name="participants" min="1" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="age">Возраст *</label>
+                    <input type="text" id="age" name="age" placeholder="Например: 10-15 лет" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="composition">Название произведения, авторы произведения *</label>
+                    <textarea id="composition" name="composition" rows="3" required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="director">ФИО руководителя *</label>
+                    <input type="text" id="director" name="director" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Электронная почта *</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="location">Страна, город исполнителя / коллектива *</label>
+                    <input type="text" id="location" name="location" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="video-link">Ссылка на творческий номер *</label>
+                    <input type="url" id="video-link" name="video-link" placeholder="https://..." required>
+                </div>
+
+                <button type="submit" class="btn-submit">Отправить заявку</button>
+            </form>
+        </div>
+    </div>
 
     <footer>
         <!-- Футер будет добавлен позже -->
     </footer>
 
+    <script src="config.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

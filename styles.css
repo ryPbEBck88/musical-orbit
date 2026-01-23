@@ -1,4 +1,6 @@
-/* Базовые стили */
+/* ============================================
+   БАЗОВЫЕ СТИЛИ
+   ============================================ */
 * {
     margin: 0;
     padding: 0;
@@ -17,7 +19,9 @@ body {
     padding: 0 20px;
 }
 
-/* Header */
+/* ============================================
+   HEADER И НАВИГАЦИЯ
+   ============================================ */
 .header {
     background-color: #fff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -33,13 +37,40 @@ body {
     padding: 1rem 0;
 }
 
+/* Логотип */
 .logo a {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
     font-size: 1.5rem;
     font-weight: bold;
     color: #333;
     text-decoration: none;
 }
 
+.logo-img {
+    height: 40px;
+    width: auto;
+    object-fit: contain;
+    display: none;
+}
+
+.logo-img.loaded,
+.logo-img[src]:not([src=""]) {
+    display: block;
+}
+
+.logo-text {
+    display: inline;
+    white-space: nowrap;
+    font-size: 1.2rem;
+}
+
+.logo.has-image .logo-text {
+    display: inline;
+}
+
+/* Меню навигации */
 .nav-menu {
     display: flex;
     list-style: none;
@@ -62,49 +93,6 @@ body {
     color: #007bff;
 }
 
-/* Подменю */
-.has-submenu {
-    position: relative;
-}
-
-.submenu {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background-color: #fff;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    list-style: none;
-    min-width: 200px;
-    padding: 0.5rem 0;
-    margin-top: 0.5rem;
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(-10px);
-    transition: all 0.3s;
-}
-
-.has-submenu:hover .submenu {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-}
-
-.submenu li {
-    padding: 0;
-}
-
-.submenu a {
-    display: block;
-    padding: 0.75rem 1.5rem;
-    color: #333;
-    font-size: 0.9rem;
-}
-
-.submenu a:hover {
-    background-color: #f8f9fa;
-    color: #007bff;
-}
-
 /* Мобильное меню */
 .mobile-menu-toggle {
     display: none;
@@ -123,53 +111,9 @@ body {
     transition: all 0.3s;
 }
 
-/* Адаптивность для мобильных */
-@media (max-width: 768px) {
-    .mobile-menu-toggle {
-        display: flex;
-    }
-
-    .nav-menu {
-        position: fixed;
-        top: 70px;
-        left: -100%;
-        flex-direction: column;
-        background-color: #fff;
-        width: 100%;
-        padding: 2rem;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        transition: left 0.3s;
-        gap: 0;
-        align-items: flex-start;
-    }
-
-    .nav-menu.active {
-        left: 0;
-    }
-
-    .nav-menu > li {
-        width: 100%;
-        padding: 0.5rem 0;
-        border-bottom: 1px solid #eee;
-    }
-
-    .submenu {
-        position: static;
-        opacity: 1;
-        visibility: visible;
-        transform: none;
-        box-shadow: none;
-        margin-top: 0;
-        padding-left: 1rem;
-        display: none;
-    }
-
-    .has-submenu.active .submenu {
-        display: block;
-    }
-}
-
-/* Hero Slider */
+/* ============================================
+   HERO СЕКЦИЯ
+   ============================================ */
 .hero-slider {
     position: relative;
     width: 100%;
@@ -201,10 +145,7 @@ body {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-}
-
-.hero-slide[data-category="main"] .hero-image {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://via.placeholder.com/1920x600/6c5ce7/ffffff?text=Музыкальная+орбита');
+    background-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
 }
 
 .hero-content {
@@ -222,15 +163,17 @@ body {
 .hero-content h2 {
     font-size: 3.5rem;
     font-weight: bold;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     line-height: 1.2;
 }
 
-.hero-subtitle {
-    font-size: 1.5rem;
+.hero-association {
+    font-size: 1.2rem;
     margin-bottom: 2rem;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    color: #ffd700;
+    font-weight: 500;
 }
 
 .btn-participate {
@@ -252,79 +195,9 @@ body {
     box-shadow: 0 6px 20px rgba(255, 107, 107, 0.6);
 }
 
-/* Индикаторы слайдера */
-.slider-indicators {
-    position: absolute;
-    bottom: 30px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    gap: 10px;
-    z-index: 3;
-}
-
-.indicator {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background-color: rgba(255, 255, 255, 0.5);
-    cursor: pointer;
-    transition: all 0.3s;
-}
-
-.indicator.active {
-    background-color: #fff;
-    width: 30px;
-    border-radius: 6px;
-}
-
-/* Адаптивность для hero */
-@media (max-width: 768px) {
-    .hero-slider {
-        height: 500px;
-    }
-
-    .hero-content h1,
-    .hero-content h2 {
-        font-size: 2rem;
-    }
-
-    .hero-subtitle {
-        font-size: 1.2rem;
-    }
-
-    .btn-participate {
-        padding: 0.8rem 2rem;
-        font-size: 1rem;
-    }
-
-    .slider-indicators {
-        bottom: 20px;
-    }
-}
-
-@media (max-width: 480px) {
-    .hero-slider {
-        height: 400px;
-    }
-
-    .hero-content h1,
-    .hero-content h2 {
-        font-size: 1.5rem;
-    }
-
-    .hero-subtitle {
-        font-size: 1rem;
-        margin-bottom: 1.5rem;
-    }
-
-    .btn-participate {
-        padding: 0.7rem 1.5rem;
-        font-size: 0.9rem;
-    }
-}
-
-/* Бегущая строка */
+/* ============================================
+   БЕГУЩАЯ СТРОКА
+   ============================================ */
 .ticker-section {
     background-color: #2d3436;
     color: #fff;
@@ -341,7 +214,7 @@ body {
 .ticker-content {
     display: flex;
     white-space: nowrap;
-    animation: ticker 60s linear infinite;
+    animation: ticker 25s linear infinite;
 }
 
 .ticker-item {
@@ -359,7 +232,9 @@ body {
     }
 }
 
-/* Секция "О фестивале" */
+/* ============================================
+   СЕКЦИЯ "О ФЕСТИВАЛЕ"
+   ============================================ */
 .about-section {
     padding: 4rem 0;
     background-color: #f8f9fa;
@@ -440,10 +315,72 @@ body {
     box-shadow: 0 6px 20px rgba(108, 92, 231, 0.6);
 }
 
-/* Адаптивность для бегущей строки и секции "О фестивале" */
+/* ============================================
+   АДАПТИВНОСТЬ
+   ============================================ */
 @media (max-width: 768px) {
+    /* Мобильное меню */
+    .mobile-menu-toggle {
+        display: flex;
+    }
+
+    .nav-menu {
+        position: fixed;
+        top: 70px;
+        left: -100%;
+        flex-direction: column;
+        background-color: #fff;
+        width: 100%;
+        padding: 2rem;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: left 0.3s;
+        gap: 0;
+        align-items: flex-start;
+    }
+
+    .nav-menu.active {
+        left: 0;
+    }
+
+    .nav-menu > li {
+        width: 100%;
+        padding: 0.5rem 0;
+        border-bottom: 1px solid #eee;
+    }
+
+    /* Логотип */
+    .logo-text {
+        display: inline !important;
+        font-size: 1.2rem;
+    }
+
+    .logo.has-image .logo-text {
+        display: inline !important;
+    }
+
+    /* Hero секция */
+    .hero-slider {
+        height: 500px;
+    }
+
+    .hero-content h1,
+    .hero-content h2 {
+        font-size: 2rem;
+    }
+
+    .hero-association {
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .btn-participate {
+        padding: 0.8rem 2rem;
+        font-size: 1rem;
+    }
+
+    /* Бегущая строка */
     .ticker-content {
-        animation: ticker 30s linear infinite;
+        animation: ticker 25s linear infinite;
     }
 
     .ticker-item {
@@ -451,6 +388,7 @@ body {
         padding: 0 2rem;
     }
 
+    /* Секция "О фестивале" */
     .about-section {
         padding: 3rem 0;
     }
@@ -473,5 +411,27 @@ body {
         text-align: center;
         padding: 0.9rem 1.5rem;
         font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Hero секция */
+    .hero-slider {
+        height: 400px;
+    }
+
+    .hero-content h1,
+    .hero-content h2 {
+        font-size: 1.5rem;
+    }
+
+    .hero-association {
+        font-size: 0.85rem;
+        margin-bottom: 1rem;
+    }
+
+    .btn-participate {
+        padding: 0.7rem 1.5rem;
+        font-size: 0.9rem;
     }
 }

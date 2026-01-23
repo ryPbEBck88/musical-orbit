@@ -442,6 +442,10 @@ body {
 
 /* Адаптивность для бегущей строки и секции "О фестивале" */
 @media (max-width: 768px) {
+    .ticker-content {
+        animation: ticker 30s linear infinite;
+    }
+
     .ticker-item {
         font-size: 0.9rem;
         padding: 0 2rem;

@@ -33,13 +33,6 @@ document.addEventListener('click', (e) => {
     }
 });
 
-// Бегущая строка - дублирование контента для бесшовной анимации
-const tickerContent = document.querySelector('.ticker-content');
-if (tickerContent) {
-    const originalContent = tickerContent.innerHTML;
-    tickerContent.innerHTML = originalContent + originalContent;
-}
-
 // Проверка загрузки логотипов
 function checkLogoLoad(img, container) {
     if (!img || !container) return;
@@ -82,26 +75,76 @@ if (headerLogo && headerLogoContainer) {
     checkLogoLoad(headerLogo, headerLogoContainer);
 }
 
-// Проверка загрузки фонового изображения hero
-const heroImage = document.querySelector('.hero-image');
-if (heroImage) {
-    const bgImageUrl = heroImage.getAttribute('data-bg-image');
-    // Загружаем изображение только если указан URL и он не пустой
-    if (bgImageUrl && bgImageUrl.trim() !== '') {
-        const testImg = new Image();
-        testImg.onload = function() {
-            // Изображение загрузилось успешно - устанавливаем его как фон
-            heroImage.style.backgroundImage = `url('${bgImageUrl}')`;
-        };
-        testImg.onerror = function() {
-            // Изображение не загрузилось - остается fallback градиент из CSS
-            // Убираем атрибут, чтобы не было повторных попыток
-            heroImage.removeAttribute('data-bg-image');
-        };
-        // Устанавливаем src в конце, чтобы обработчики были уже прикреплены
-        testImg.src = bgImageUrl;
+// ============================================
+// HERO SLIDER
+// ============================================
+const heroSlides = document.querySelectorAll('.hero-slide');
+const indicators = document.querySelectorAll('.indicator');
+let currentSlide = 0;
+const slideInterval = 5000; // 5 секунд
+
+function showSlide(index) {
+    // Убираем активный класс со всех слайдов
+    heroSlides.forEach(slide => slide.classList.remove('active'));
+    indicators.forEach(indicator => indicator.classList.remove('active'));
+    
+    // Добавляем активный класс к текущему слайду
+    if (heroSlides[index]) {
+        heroSlides[index].classList.add('active');
+    }
+    if (indicators[index]) {
+        indicators[index].classList.add('active');
     }
 }
+
+function nextSlide() {
+    currentSlide = (currentSlide + 1) % heroSlides.length;
+    showSlide(currentSlide);
+}
+
+// Автоматическая смена слайдов
+let slideTimer = setInterval(nextSlide, slideInterval);
+
+// Клик по индикаторам
+indicators.forEach((indicator, index) => {
+    indicator.addEventListener('click', () => {
+        currentSlide = index;
+        showSlide(currentSlide);
+        // Сбрасываем таймер
+        clearInterval(slideTimer);
+        slideTimer = setInterval(nextSlide, slideInterval);
+    });
+});
+
+// Пауза при наведении на слайдер
+const heroSlider = document.querySelector('.hero-slider');
+if (heroSlider) {
+    heroSlider.addEventListener('mouseenter', () => {
+        clearInterval(slideTimer);
+    });
+    
+    heroSlider.addEventListener('mouseleave', () => {
+        slideTimer = setInterval(nextSlide, slideInterval);
+    });
+}
+
+// Проверка загрузки фоновых изображений для всех слайдов
+heroSlides.forEach(slide => {
+    const heroImage = slide.querySelector('.hero-image');
+    if (heroImage) {
+        const bgImageUrl = heroImage.getAttribute('data-bg-image');
+        if (bgImageUrl && bgImageUrl.trim() !== '') {
+            const testImg = new Image();
+            testImg.onload = function() {
+                heroImage.style.backgroundImage = `url('${bgImageUrl}')`;
+            };
+            testImg.onerror = function() {
+                console.log(`Hero background image not found: ${bgImageUrl}, using gradient fallback`);
+            };
+            testImg.src = bgImageUrl;
+        }
+    }
+});
 
 // ============================================
 // КОНФИГУРАЦИЯ ЗАГРУЖАЕТСЯ ИЗ config.js

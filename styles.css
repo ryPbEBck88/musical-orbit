@@ -195,41 +195,30 @@ body {
     box-shadow: 0 6px 20px rgba(255, 107, 107, 0.6);
 }
 
-/* ============================================
-   БЕГУЩАЯ СТРОКА
-   ============================================ */
-.ticker-section {
-    background-color: #2d3436;
-    color: #fff;
-    padding: 1rem 0;
-    overflow: hidden;
-    position: relative;
-}
-
-.ticker-wrapper {
-    width: 100%;
-    overflow: hidden;
-}
-
-.ticker-content {
+/* Индикаторы слайдера */
+.slider-indicators {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
     display: flex;
-    white-space: nowrap;
-    animation: ticker 25s linear infinite;
+    gap: 10px;
+    z-index: 3;
 }
 
-.ticker-item {
-    padding: 0 3rem;
-    font-size: 1.1rem;
-    font-weight: 500;
+.indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: all 0.3s;
 }
 
-@keyframes ticker {
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        transform: translateX(-50%);
-    }
+.indicator.active {
+    background-color: #fff;
+    width: 30px;
+    border-radius: 6px;
 }
 
 /* ============================================
@@ -549,14 +538,8 @@ body {
         font-size: 1rem;
     }
 
-    /* Бегущая строка */
-    .ticker-content {
-        animation: ticker 25s linear infinite;
-    }
-
-    .ticker-item {
-        font-size: 0.9rem;
-        padding: 0 2rem;
+    .slider-indicators {
+        bottom: 20px;
     }
 
     /* Секция "О фестивале" */
@@ -629,4 +612,5 @@ body {
         padding: 0.7rem 1.5rem;
         font-size: 0.9rem;
     }
+
 }

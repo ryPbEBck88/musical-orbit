@@ -79,13 +79,16 @@
     <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
     <script>
         ymaps.ready(function () {
+            // Точные координаты: г. Сочи, ул. Троицкая 31/1
+            var coordinates = [43.451852, 39.912786]; // [широта, долгота], 
+            
             var map = new ymaps.Map('yandex-map', {
-                center: [43.6028, 39.7231], // Координаты Сочи (широта, долгота)
+                center: coordinates,
                 zoom: 16
             });
 
             // Добавляем метку
-            var placemark = new ymaps.Placemark([43.6028, 39.7231], {
+            var placemark = new ymaps.Placemark(coordinates, {
                 balloonContent: 'г. Сочи, ул. Троицкая 31/1',
                 iconCaption: 'Музыкальная орбита'
             }, {

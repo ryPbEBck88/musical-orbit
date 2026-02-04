@@ -789,3 +789,37 @@ body {
         font-size: 1.3rem;
     }
 }
+
+/* Уведомление о копировании */
+.copy-notification {
+    position: fixed;
+    bottom: 6rem;
+    right: 2rem;
+    background-color: #2d3436;
+    color: #fff;
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    z-index: 1001;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+    max-width: 300px;
+}
+
+.copy-notification.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+    .copy-notification {
+        bottom: 5rem;
+        right: 1rem;
+        left: 1rem;
+        max-width: none;
+        font-size: 0.85rem;
+        padding: 0.8rem 1.2rem;
+    }
+}

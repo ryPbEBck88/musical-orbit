@@ -384,3 +384,86 @@ if (scrollToTopButton) {
         });
     });
 }
+
+// Обработка клика по телефону
+const phoneLink = document.getElementById('phone-link');
+
+if (phoneLink) {
+    // Функция определения мобильного устройства
+    function isMobileDevice() {
+        return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || 
+               (window.innerWidth <= 768 && 'ontouchstart' in window);
+    }
+
+    // Функция копирования в буфер обмена
+    function copyToClipboard(text) {
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+            return navigator.clipboard.writeText(text).then(() => true);
+        } else {
+            // Fallback для старых браузеров
+            const textArea = document.createElement('textarea');
+            textArea.value = text;
+            textArea.style.position = 'fixed';
+            textArea.style.left = '-999999px';
+            document.body.appendChild(textArea);
+            textArea.focus();
+            textArea.select();
+            try {
+                document.execCommand('copy');
+                document.body.removeChild(textArea);
+                return Promise.resolve(true);
+            } catch (err) {
+                document.body.removeChild(textArea);
+                return Promise.resolve(false);
+            }
+        }
+    }
+
+    // Функция показа уведомления
+    function showNotification(message) {
+        // Удаляем старое уведомление, если есть
+        const oldNotification = document.querySelector('.copy-notification');
+        if (oldNotification) {
+            oldNotification.remove();
+        }
+
+        // Создаем новое уведомление
+        const notification = document.createElement('div');
+        notification.className = 'copy-notification';
+        notification.textContent = message;
+        document.body.appendChild(notification);
+
+        // Показываем уведомление
+        setTimeout(() => {
+            notification.classList.add('show');
+        }, 10);
+
+        // Скрываем и удаляем через 2 секунды
+        setTimeout(() => {
+            notification.classList.remove('show');
+            setTimeout(() => {
+                notification.remove();
+            }, 300);
+        }, 2000);
+    }
+
+    // Обработчик клика
+    phoneLink.addEventListener('click', function(e) {
+        // На мобильных устройствах оставляем стандартное поведение (tel:)
+        if (isMobileDevice()) {
+            return; // Разрешаем стандартное поведение - откроется приложение для звонка
+        }
+
+        // На десктопе предотвращаем переход и копируем номер
+        e.preventDefault();
+        const phoneNumber = this.getAttribute('data-phone') || this.textContent.trim();
+        
+        copyToClipboard(phoneNumber).then(success => {
+            if (success) {
+                showNotification('Номер телефона скопирован в буфер обмена');
+            } else {
+                showNotification('Не удалось скопировать номер');
+            }
+        });
+    });
+}

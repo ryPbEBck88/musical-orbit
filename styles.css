@@ -284,6 +284,13 @@ body {
     text-decoration: underline;
 }
 
+.download-buttons {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+}
+
 .btn-download {
     display: inline-block;
     padding: 1rem 2rem;
@@ -294,7 +301,7 @@ body {
     font-weight: bold;
     border-radius: 8px;
     transition: all 0.3s;
-    margin-top: 2rem;
+    margin-top: 0;
     box-shadow: 0 4px 15px rgba(108, 92, 231, 0.4);
 }
 
@@ -453,6 +460,31 @@ body {
 
 .btn-submit:active {
     transform: translateY(0);
+}
+
+.form-consent-reminder {
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    border-left: 4px solid #6c5ce7;
+}
+
+.form-consent-reminder p {
+    margin: 0;
+    font-size: 0.95rem;
+    color: #555;
+    line-height: 1.6;
+}
+
+.form-consent-reminder a {
+    color: #6c5ce7;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.form-consent-reminder a:hover {
+    text-decoration: underline;
 }
 
 .form-message {
@@ -663,11 +695,17 @@ body {
         padding: 1rem;
     }
 
+    .download-buttons {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
     .btn-download {
         display: block;
         text-align: center;
         padding: 0.9rem 1.5rem;
         font-size: 1rem;
+        width: 100%;
     }
 
     /* Модальное окно */

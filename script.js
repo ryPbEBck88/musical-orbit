@@ -467,3 +467,29 @@ if (phoneLink) {
         });
     });
 }
+
+// Обработка скачивания файла согласия из формы
+document.addEventListener('DOMContentLoaded', function() {
+    const consentLinks = document.querySelectorAll('a[href*="согласия.docx"]');
+    consentLinks.forEach(function(link) {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            // Создаем временную ссылку для принудительного скачивания
+            const downloadLink = document.createElement('a');
+            downloadLink.href = 'согласия.docx';
+            downloadLink.download = 'Согласия_на_обработку_персональных_данных.docx';
+            downloadLink.style.display = 'none';
+            document.body.appendChild(downloadLink);
+            
+            // Программно кликаем для скачивания
+            downloadLink.click();
+            
+            // Удаляем временную ссылку
+            setTimeout(function() {
+                document.body.removeChild(downloadLink);
+            }, 100);
+        });
+    });
+});

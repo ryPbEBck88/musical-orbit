@@ -3,216 +3,172 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Международный онлайн-фестиваль «Музыкальная орбита» - вокальное и инструментальное творчество">
-    <title>Международный онлайн-фестиваль «Музыкальная орбита»</title>
-    
-    <!-- Favicon -->
+    <meta name="description" content="Фестивальное движение «Музыкальная орбита» — три дистанционных фестиваля Ассоциации музыкальных творческих коллективов">
+    <title>Фестивальное движение «Музыкальная орбита»</title>
     <link rel="icon" type="image/png" href="images/logo.png">
-    <link rel="shortcut icon" type="image/png" href="images/logo.png">
-    <link rel="apple-touch-icon" href="images/logo.png">
-    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,650;9..144,700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header class="header">
-        <div class="container">
-            <nav class="nav">
-                <div class="logo">
-                    <a href="index.html">
-                        <img src="images/logo.png" alt="Музыкальная орбита" class="logo-img" onerror="this.style.display='none';" onload="this.classList.add('loaded');">
-                        <span class="logo-text">Музыкальная орбита</span>
-                    </a>
-                </div>
-                <ul class="nav-menu">
-                    <li><a href="index.html">Главная</a></li>
-                    <li><a href="contacts.html">Контакты</a></li>
-                </ul>
-                <button class="mobile-menu-toggle" aria-label="Меню">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
+    <header class="site-header">
+        <div class="shell header-inner">
+            <a class="brand" href="#top" aria-label="Музыкальная орбита — на главную">
+                <img src="images/logo.png" alt="" class="brand-mark" width="40" height="40">
+                <span class="brand-name">Музыкальная орбита</span>
+            </a>
+            <nav class="nav" aria-label="Основная навигация">
+                <a href="#festivals">Фестивали</a>
+                <a href="#participate">Участие</a>
+                <a href="#contacts">Контакты</a>
             </nav>
+            <a class="btn btn-small" href="https://docs.google.com/forms/d/e/1FAIpQLSd0gz0a7ptW2cRkNc3X4-43spopa6eY75qKB80_aF-b0A6I2g/viewform?usp=dialog" target="_blank" rel="noopener">Заявка</a>
+            <button class="nav-toggle" type="button" aria-label="Открыть меню" aria-expanded="false">
+                <span></span><span></span>
+            </button>
+        </div>
+        <div class="mobile-nav" hidden>
+            <a href="#festivals">Фестивали</a>
+            <a href="#participate">Участие</a>
+            <a href="#contacts">Контакты</a>
+            <a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSd0gz0a7ptW2cRkNc3X4-43spopa6eY75qKB80_aF-b0A6I2g/viewform?usp=dialog" target="_blank" rel="noopener">Подать заявку</a>
         </div>
     </header>
 
-    <main>
-        <!-- Hero секция -->
-        <section class="hero-slider">
-            <div class="hero-slide active" data-category="main">
-                <div class="hero-image" data-bg-image="images/hero-space-1.jpg"></div>
-                <div class="hero-content">
-                    <div class="container">
-                        <h1>Международный онлайн-фестиваль<br>«Музыкальная орбита»</h1>
-                        <p class="hero-association">АССОЦИАЦИЯ МУЗЫКАЛЬНЫХ ТВОРЧЕСКИХ КОЛЛЕКТИВОВ</p>
-                        <a href="#participate" class="btn-participate">ПРИНЯТЬ УЧАСТИЕ</a>
-                    </div>
+    <main id="top">
+        <section class="hero">
+            <div class="hero-media" role="img" aria-label="Международный фестиваль Музыкальная орбита"></div>
+            <div class="hero-veil"></div>
+            <div class="shell hero-copy">
+                <p class="hero-kicker reveal">Ассоциация музыкальных творческих коллективов</p>
+                <h1 class="hero-brand reveal">Музыкальная орбита</h1>
+                <p class="hero-lead reveal">Фестивальное движение из трёх дистанционных фестивалей — голос, инструмент, народная традиция и авторский замысел.</p>
+                <div class="hero-actions reveal">
+                    <a class="btn btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSd0gz0a7ptW2cRkNc3X4-43spopa6eY75qKB80_aF-b0A6I2g/viewform?usp=dialog" target="_blank" rel="noopener">Подать заявку</a>
+                    <a class="btn btn-ghost" href="#festivals">Смотреть фестивали</a>
                 </div>
             </div>
+            <div class="hero-orbit" aria-hidden="true"></div>
+        </section>
 
-            <div class="hero-slide" data-category="vocal">
-                <div class="hero-image" data-bg-image="images/hero-space-2.jpg"></div>
-                <div class="hero-content">
-                    <div class="container">
-                        <h2>Вокальное творчество различных стилей и направлений</h2>
-                        <a href="#participate" class="btn-participate">ПРИНЯТЬ УЧАСТИЕ</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="hero-slide" data-category="instrumental">
-                <div class="hero-image" data-bg-image="images/hero-space-3.jpg"></div>
-                <div class="hero-content">
-                    <div class="container">
-                        <h2>Инструментальное творчество различных стилей и направлений</h2>
-                        <a href="#participate" class="btn-participate">ПРИНЯТЬ УЧАСТИЕ</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="hero-slide" data-category="age">
-                <div class="hero-image" data-bg-image="images/hero-space-4.jpg"></div>
-                <div class="hero-content">
-                    <div class="container">
-                        <h2>Возраст и состав участников не ограничен</h2>
-                        <a href="#participate" class="btn-participate">ПРИНЯТЬ УЧАСТИЕ</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="hero-slide" data-category="invitation">
-                <div class="hero-image" data-bg-image="images/hero-space-5.jpg"></div>
-                <div class="hero-content">
-                    <div class="container">
-                        <h2>Приглашаем музыкально-одарённых, талантливых исполнителей без музыкального образования и профессиональных музыкантов</h2>
-                        <a href="#participate" class="btn-participate">ПРИНЯТЬ УЧАСТИЕ</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Индикаторы слайдов -->
-            <div class="slider-indicators">
-                <span class="indicator active" data-slide="0"></span>
-                <span class="indicator" data-slide="1"></span>
-                <span class="indicator" data-slide="2"></span>
-                <span class="indicator" data-slide="3"></span>
-                <span class="indicator" data-slide="4"></span>
+        <section class="intro" id="about">
+            <div class="shell intro-grid">
+                <h2 class="section-title reveal">О движении</h2>
+                <p class="intro-text reveal">Фестивальное движение «Музыкальная орбита» проводится общественной Ассоциацией музыкальных творческих коллективов дистанционно и объединяет фестивали по разным направлениям. Вы можете отснять свои номера и подать одну заявку — она подходит для всех трёх фестивалей.</p>
             </div>
         </section>
 
-        <!-- Описание фестиваля -->
-        <section class="about-section">
-            <div class="container">
-                <div class="about-content">
-                    <h2>О фестивале</h2>
-                    <p>Международный онлайн-фестиваль «Музыкальная орбита» посвящен 225-летию со дня рождения В.И. Даля – знаменитого собирателя русского языка, автора «Толкового словаря живого великорусского языка».</p>
-                    <p>Вы можете отснять свои номера и подать заявку на участие в фестивале. Участники фестиваля могут представить музыкальное искусство различных стилей и направлений, при этом возраст и состав участников не ограничен. Приветствуется тематика песен на русском языке о родной Земле, любви, семье, дружбе, а также инструментальные произведения советских и русских композиторов.</p>
-                    
-                    <div class="festival-info">
-                        <div class="info-item">
-                            <strong>Заявки принимаются:</strong>
-                            <p>с 1 апреля по 1 июля 2026 года</p>
-                        </div>
-                        
-                        <div class="info-item">
-                            <strong>Публикация итогов:</strong>
-                            <p>Публикация итогов работы экспертного совета в сообществах и каналах фестиваля, основная информация и видео размещаются на сайте ВК - <a href="https://m.vk.com/club.academiya" target="_blank">https://m.vk.com/club.academiya</a></p>
-                        </div>
-                        
-                        <div class="info-item">
-                            <strong>Участие:</strong>
-                            <p>Участие в фестивале «Музыкальная орбита» бесплатно. По окончании фестиваля все участники, выполнившие требования положения, получат в электронном виде диплом за участие в фестивале.</p>
-                        </div>
-                        
-                        <div class="info-item">
-                            <strong>Информация и обсуждение:</strong>
-                            <p>Информация и обсуждение вопросов по фестивалю на канале: <a href="https://t.me/muzicalorbit" target="_blank">https://t.me/muzicalorbit</a></p>
-                        </div>
-                        
-                        <div class="info-item">
-                            <strong>Согласия на обработку персональных данных:</strong>
-                            <p>Обязательно заполните документ согласия и отправьте его на электронную почту: <a href="mailto:musical.orbit@ya.ru">musical.orbit@ya.ru</a></p>
-                        </div>
+        <section class="festivals" id="festivals">
+            <article class="festival" id="orbit">
+                <div class="festival-visual">
+                    <img src="images/festival-orbit.jpg" alt="Международный фестиваль «Музыкальная орбита»" loading="lazy">
+                </div>
+                <div class="shell festival-body">
+                    <p class="festival-dates reveal">1 июня — 1 июля</p>
+                    <h2 class="festival-title reveal">Музыкальная орбита</h2>
+                    <p class="festival-text reveal">Вокально-хоровое и инструментальное творчество разных стилей. Приветствуются песни на русском языке о родной Земле, любви, семье, дружбе, а также инструментальные произведения советских и русских композиторов.</p>
+                    <div class="festival-actions reveal">
+                        <a class="btn btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSd0gz0a7ptW2cRkNc3X4-43spopa6eY75qKB80_aF-b0A6I2g/viewform?usp=dialog" target="_blank" rel="noopener">Заявка</a>
+                        <a class="btn btn-line" href="docs/Положение_Музыкальная_орбита.docx" download>Скачать положение</a>
                     </div>
+                </div>
+            </article>
 
-                    <div class="download-buttons">
-                        <a href="music_orbit-position.docx" class="btn-download" download="Положение_фестиваля_Музыкальная_орбита.docx">Скачать положение фестиваля</a>
-                        <a href="согласия.docx" class="btn-download" download="Согласия_на_обработку_персональных_данных.docx">Скачать согласия</a>
+            <article class="festival festival-alt" id="together">
+                <div class="festival-visual">
+                    <img src="images/festival-together.jpg" alt="Фестиваль «Мы вместе, мы едины и в звуках, и сердцах»" loading="lazy">
+                </div>
+                <div class="shell festival-body">
+                    <p class="festival-dates reveal">23 октября — 4 ноября</p>
+                    <h2 class="festival-title reveal">Мы вместе, мы едины и в звуках, и сердцах</h2>
+                    <p class="festival-text reveal">Народные и стилизованные песни на родном языке — с текстом и переводом на русский на почту фестиваля, — а также этнические инструментальные и танцевальные композиции с указанием авторов музыки.</p>
+                    <div class="festival-actions reveal">
+                        <a class="btn btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSd0gz0a7ptW2cRkNc3X4-43spopa6eY75qKB80_aF-b0A6I2g/viewform?usp=dialog" target="_blank" rel="noopener">Заявка</a>
+                        <a class="btn btn-line" href="docs/Положение_Мы_вместе_мы_едины.docx" download>Скачать положение</a>
                     </div>
+                </div>
+            </article>
+
+            <article class="festival" id="dream">
+                <div class="festival-visual">
+                    <img src="images/festival-dream.jpg" alt="Фестиваль авторских проектов «Поверь в мечту»" loading="lazy">
+                </div>
+                <div class="shell festival-body">
+                    <p class="festival-dates reveal">1 декабря — 1 февраля</p>
+                    <h2 class="festival-title reveal">Поверь в мечту</h2>
+                    <p class="festival-text reveal">Фестиваль авторских проектов: литературное и музыкальное сочинение, театральная постановка, короткометражный и мультипликационный фильм, клип авторской песни, социальный ролик. Хронометраж видео — от 2 до 10 минут; тексты сочинений отправляются на почту фестиваля.</p>
+                    <div class="festival-actions reveal">
+                        <a class="btn btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSd0gz0a7ptW2cRkNc3X4-43spopa6eY75qKB80_aF-b0A6I2g/viewform?usp=dialog" target="_blank" rel="noopener">Заявка</a>
+                        <a class="btn btn-line" href="docs/Положение_Поверь_в_мечту.docx" download>Скачать положение</a>
+                    </div>
+                </div>
+            </article>
+        </section>
+
+        <section class="participate" id="participate">
+            <div class="shell participate-inner">
+                <h2 class="section-title reveal">Как принять участие</h2>
+                <ol class="steps">
+                    <li class="reveal">
+                        <span class="step-num">01</span>
+                        <div>
+                            <h3>Выберите фестиваль</h3>
+                            <p>Ознакомьтесь с положением нужного фестиваля — согласия уже включены в документы.</p>
+                        </div>
+                    </li>
+                    <li class="reveal">
+                        <span class="step-num">02</span>
+                        <div>
+                            <h3>Заполните заявку</h3>
+                            <p>Одна форма подходит для всех трёх фестивалей. Укажите наименование фестиваля и ссылку на номер.</p>
+                        </div>
+                    </li>
+                    <li class="reveal">
+                        <span class="step-num">03</span>
+                        <div>
+                            <h3>Отправьте согласие</h3>
+                            <p>Заполните согласие разборчивым почерком и пришлите фотографию на <a href="mailto:musical.orbit@ya.ru">musical.orbit@ya.ru</a>.</p>
+                        </div>
+                    </li>
+                </ol>
+
+                <div class="facts reveal">
+                    <div>
+                        <h3>Сроки</h3>
+                        <p>Заявки принимаются в даты, указанные в положении каждого фестиваля.</p>
+                    </div>
+                    <div>
+                        <h3>Участие</h3>
+                        <p>Бесплатно. Электронные дипломы — не позднее 20 дней после основного этапа.</p>
+                    </div>
+                    <div>
+                        <h3>Итоги</h3>
+                        <p>Публикуются в сообществе ВК <a href="https://m.vk.com/club.academiya" target="_blank" rel="noopener">club.academiya</a>.</p>
+                    </div>
+                </div>
+
+                <div class="participate-cta reveal">
+                    <a class="btn btn-primary btn-large" href="https://docs.google.com/forms/d/e/1FAIpQLSd0gz0a7ptW2cRkNc3X4-43spopa6eY75qKB80_aF-b0A6I2g/viewform?usp=dialog" target="_blank" rel="noopener">Открыть форму заявки</a>
                 </div>
             </div>
         </section>
-
     </main>
 
-    <!-- Модальное окно с формой заявки -->
-    <div id="participate-modal" class="modal">
-        <div class="modal-overlay"></div>
-        <div class="modal-content">
-            <button class="modal-close" aria-label="Закрыть">&times;</button>
-            <h2>Заявка</h2>
-            <form id="application-form" class="application-form">
-                <div class="form-group">
-                    <label for="name">ФИО исполнителя / название коллектива *</label>
-                    <input type="text" id="name" name="name" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="participants">Количество участников *</label>
-                    <input type="number" id="participants" name="participants" min="1" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="age">Возраст *</label>
-                    <input type="text" id="age" name="age" placeholder="Например: 10-15 лет" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="composition">Название произведения, авторы произведения *</label>
-                    <textarea id="composition" name="composition" rows="3" required></textarea>
-                </div>
-
-                <div class="form-group">
-                    <label for="director">ФИО руководителя</label>
-                    <input type="text" id="director" name="director">
-                </div>
-
-                <div class="form-group">
-                    <label for="email">Электронная почта *</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="location">Страна, город исполнителя / коллектива *</label>
-                    <input type="text" id="location" name="location" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="video-link">Ссылка на творческий номер *</label>
-                    <input type="url" id="video-link" name="video-link" placeholder="https://..." required>
-                </div>
-
-                <div class="form-consent-reminder">
-                    <p>Не забудьте заполнить и отправить <a href="согласия.docx" download="Согласия_на_обработку_персональных_данных.docx">согласие</a> на электронную почту <a href="mailto:musical.orbit@ya.ru">musical.orbit@ya.ru</a>. Это обязательно.</p>
-                </div>
-
-                <button type="submit" class="btn-submit">Отправить заявку</button>
-            </form>
-        </div>
-    </div>
-
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2026 Международный онлайн-фестиваль «Музыкальная орбита»</p>
+    <footer class="site-footer" id="contacts">
+        <div class="shell footer-inner">
+            <div class="footer-brand">
+                <p class="footer-kicker">Ассоциация музыкальных творческих коллективов</p>
+                <p class="footer-title">Музыкальная орбита</p>
+            </div>
+            <div class="footer-links">
+                <a href="mailto:musical.orbit@ya.ru">musical.orbit@ya.ru</a>
+                <a href="https://m.vk.com/club.academiya" target="_blank" rel="noopener">ВКонтакте</a>
+                <a href="https://t.me/muzicalorbit" target="_blank" rel="noopener">Telegram</a>
+            </div>
         </div>
     </footer>
 
-    <!-- Кнопка "Наверх" -->
-    <button id="scroll-to-top" class="scroll-to-top" aria-label="Наверх" title="Наверх">
-        <span>↑</span>
-    </button>
-
-    <script src="config.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
